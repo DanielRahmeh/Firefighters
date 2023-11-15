@@ -21,7 +21,7 @@ class Database {
       }
       $this->_conn = false;
       try {
-         $this->_conn = new PDO('mysql:host=localhost;dbname=td_php', 'root', '');
+         $this->_conn = new PDO('mysql:host=localhost;dbname=firefighter_db', 'root', '');
       } catch(PDOException $e) { }
       return $this->_conn;
    }
