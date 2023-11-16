@@ -1,5 +1,5 @@
 <?php
-    include("header.php");
+include($_SERVER['DOCUMENT_ROOT']."/Firefighters/pages/header.php");
 ?>
 <main>
     <h1>Mon profil</h1>
@@ -9,6 +9,7 @@
     <p>Téléphone : <?php echo($_SESSION["phone_user"]); ?></p>
     <p>Adresse : <?php echo($_SESSION["address_user"]); ?></p>
     <p>Mail : <?php echo($_SESSION["mail_user"]); ?></p>
+    <p>Arrivé le <?php echo($_SESSION["start_date_user"]); ?></p>
     <h2>Modifier mon mot de passe</h2>
     <?php
     if (isset($_GET["error"])) {
@@ -26,12 +27,12 @@
         }
     }
     ?>
-    <form method="post" action="../scripts/password_modification.php">
+    <form method="post" action=<?php echo($protocol.$_SERVER['SERVER_NAME']."/Firefighters/scripts/password_modification.php"); ?>>
         <p>Mot de passe : <input type="password" id="password" name="password" required></p>
         <p>Confirmation du mot de passe : <input type="password" id="password" name="re_password" required></p>
-        <p><input type="submit" value="Se connecter"></p>
+        <p><input type="submit" value="Modification"></p>
     </form>
 </main>
 <?php
-    include("footer.php");
+include($_SERVER['DOCUMENT_ROOT']."/Firefighters/pages/footer.php");
 ?>
