@@ -1,7 +1,7 @@
 class TableBlueprint:
-    def __init__(self, name: str, attributes: dict) -> None:
+    def __init__(self, name: str, attributes: dict[str, str] = None) -> None:
         self.name = name
-        self._attributes = attributes
+        self._attributes = attributes if attributes is not None else {}
 
     def add_attribute(self, name: str, type: str) -> None:
         self._attributes[name] = type
