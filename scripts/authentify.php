@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ($_SERVER['DOCUMENT_ROOT']."/Firefighters/scripts/connect_to_db.php");
 $db = new Database();
 $bdd = $db->getConnection();
@@ -28,7 +29,7 @@ if (isset($_POST["mail"]) && isset($_POST["password"])) {
         $i++;
     }
     if ($i == 0) {
-        header("Location: http://".$_SERVER['SERVER_NAME']."/Firefighters/pages/index.php?error=2");
+        header("Location: ".$_SESSION["url"]."/pages/index.php?error=2");
     }
     else {
         session_start();
@@ -43,10 +44,10 @@ if (isset($_POST["mail"]) && isset($_POST["password"])) {
         $_SESSION["end_date_user"] = $end_date;
         $_SESSION["id_user_role"] = $role_id;
         $_SESSION["role_user"] = $role;
-        header("Location: http://".$_SERVER['SERVER_NAME']."/Firefighters/pages/home_page.php");
+        header("Location: ".$_SESSION["url"]."/pages/home_page.php");
     }
 }
 else {
-    header("Location: http://".$_SERVER['SERVER_NAME']."/Firefighters/pages/index.php?error=1");
+    header("Location: ".$_SESSION["url"]."/pages/index.php?error=1");
 }
 ?>

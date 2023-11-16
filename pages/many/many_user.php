@@ -24,7 +24,6 @@ while ($donnees = $reponse->fetch()) {
     $users[$i] = $new_user;
     $i++;
 }
-echo $_SERVER['DOCUMENT_ROOT'];
 ?>
 <table>
     <tr>
@@ -40,7 +39,7 @@ echo $_SERVER['DOCUMENT_ROOT'];
             <td><?php echo($user->last_name); ?></td>
             <td><?php echo($user->first_name); ?></td>
             <td><?php echo($user->name_user_role); ?></td>
-            <td><a href="../single/single_user.php">Modifier</a></td>
+            <td><a href=<?php echo($_SESSION["url"]."/pages/single/single_user.php"); ?>>Modifier</a></td>
         </tr>
         <?php
     }

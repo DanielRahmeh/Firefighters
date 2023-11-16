@@ -1,13 +1,15 @@
 <?php
-$protocol = "http://";
-//$protocol = "https://";
+session_start();
+$_SESSION["protocol"] = "http://";
+//$_SESSION["protocol"] = "https://";
+$_SESSION["url"] = $_SESSION["protocol"].$_SERVER['SERVER_NAME']."/Firefighters";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=<?php echo($protocol.$_SERVER['SERVER_NAME']."/Firefighters/styles/styles.css"); ?>>
+    <link rel="stylesheet" href=<?php echo($_SESSION["url"]."/styles/styles.css"); ?>>
     <title>Pomper</title>
 </head>
 <body>
@@ -28,7 +30,7 @@ if (isset($_GET["error"])) {
 }
 ?>
 <main>
-    <form method="post" action=<?php echo($protocol.$_SERVER['SERVER_NAME']."/Firefighters/scripts/authentify.php"); ?>>
+    <form method="post" action=<?php echo($_SESSION["protocol"].$_SERVER['SERVER_NAME']."/Firefighters/scripts/authentify.php"); ?>>
         <p>Mail : <input type="text" id="mail" name="mail" required></p>
         <p>Mot de passe : <input type="password" id="password" name="password" required></p>
         <p><input type="submit" value="Se connecter"></p>

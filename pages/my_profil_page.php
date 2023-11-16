@@ -27,7 +27,7 @@ include($_SERVER['DOCUMENT_ROOT']."/Firefighters/pages/header.php");
         }
     }
     ?>
-    <form method="post" action=<?php echo($protocol.$_SERVER['SERVER_NAME']."/Firefighters/scripts/password_modification.php"); ?>>
+    <form method="post" action=<?php echo($_SESSION["url"]."/scripts/password_modification.php"); ?>>
         <p>Mot de passe : <input type="password" id="password" name="password" required></p>
         <p>Confirmation du mot de passe : <input type="password" id="password" name="re_password" required></p>
         <p><input type="submit" value="Modification"></p>
