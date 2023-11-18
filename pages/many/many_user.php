@@ -25,6 +25,23 @@ while ($donnees = $reponse->fetch()) {
     $i++;
 }
 ?>
+<p><a href="<?php echo($_SESSION["url"]."/pages/add/add_user.php"); ?>">Ajouter</a></p>
+<?php
+if(isset($_GET["error"])) {
+    switch ($_GET["error"]) {
+        case -1:
+            ?>
+            <p>Erreur lors de la création du profil</p>
+            <?php
+            break;
+        case 0:
+            ?>
+            <p>La profil a bien été crée</p>
+            <?php
+            break;
+    }
+}
+?>
 <table>
     <tr>
         <th>Nom</th>
@@ -39,7 +56,7 @@ while ($donnees = $reponse->fetch()) {
             <td><?php echo($user->last_name); ?></td>
             <td><?php echo($user->first_name); ?></td>
             <td><?php echo($user->name_user_role); ?></td>
-            <td><a href=<?php echo($_SESSION["url"]."/pages/single/single_user.php"); ?>>Modifier</a></td>
+            <td><a href=<?php echo($_SESSION["url"]."/pages/single/single_user.php?id=".$user->id); ?>>Modifier</a></td>
         </tr>
         <?php
     }
