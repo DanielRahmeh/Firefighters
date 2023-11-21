@@ -1,28 +1,29 @@
 @startuml
+left to right direction
+actor User
+actor Admin
+actor RH
+actor Tech
+actor Alert
+actor Fire
+actor Super
 
-    :User: as User
-    :Administrateur informatique: as Admin
-    :Collaborateurs ressources humaines: as RH
-    :Technicien équipement: as Tech
-    :Lanceur d'alerte: as Alert
-    :Pompier: as Fire
-    :Superviseur: as Super
+User --|> Admin
+RH --|> Admin
+Tech --|> Admin
+Alert --|> Admin
+Fire --|> Admin
+Super --|> Admin
 
-    Admin --|> User
-    Admin --|> RH
-    Admin --|> Tech
-    Admin --|> Alert
-    Admin --|> Fire
-    Admin --|> Super
+Fire --|> Super
 
-    Super --|> Fire
+User --|> RH
+User --|> Tech
+User --|> Alert
+User --|> Fire
+User --|> Super
 
-    RH --|> User
-    Tech --|> User
-    Alert --|> User
-    Fire --|> User
-    Super --|> User
-
+left to right direction
 package Website {
     usecase "Connection au site" as UC0
 
@@ -34,87 +35,87 @@ package Website {
     usecase "Gestion de son profil utilisateur" as UC15
 
     usecase "Consultation des fonctionnalités RH" as UC2
-    usecase "Acces droit connection RH" as UC2A
+    usecase "Accès droit connexion RH" as UC2A
     usecase "Gestion de tous les profils utilisateur" as UC22
-    usecase "Gestion des comptétences" as UC23
+    usecase "Gestion des compétences" as UC23
     usecase "Gestion des formations" as UC24
     usecase "Gestion des certifications" as UC25
     usecase "Affectation des horaires" as UC26
 
     usecase "Consultation des fonctionnalités pompier" as UC3
-    usecase "Acces droit connection Pompier" as UC3A
+    usecase "Accès droit connexion Pompier" as UC3A
     usecase "Visualiser ses équipements" as UC31
     usecase "Gestion des états d'interventions" as UC32
     usecase "Mettre fin à une intervention" as UC33
     usecase "Gestion de l'analyse d'intervention" as UC34
 
     usecase "Consultation des fonctionnalités technicien" as UC4
-    usecase "Acces droit connection Technicien" as UC4A
+    usecase "Accès droit connexion Technicien" as UC4A
     usecase "Gestion de la maintenance des équipements" as UC41
     usecase "Gestion des équipements" as UC42
 
     usecase "Consultation des fonctionnalités lanceur d'alerte" as UC5
-    usecase "Acces droit connection Lanceur d'alerte" as UC5A
+    usecase "Accès droit connexion Lanceur d'alerte" as UC5A
     usecase "Gestion des alertes" as UC51
     usecase "Gestion des incidents" as UC52
 
     usecase "Consultation des fonctionnalités superviseur" as UC6
-    usecase "Acces droit connection Superviseur" as UC6A
+    usecase "Accès droit connexion Superviseur" as UC6A
     usecase "Création des équipes d'interventions" as UC61
 
     usecase "Consultation des fonctionnalités administrateur" as UC7
-    usecase "Acces droit connection Administrateur" as UC7A
+    usecase "Accès droit connexion Administrateur" as UC7A
     usecase "Gestion des droits utilisateurs" as UC71
     usecase "Suivi des statistiques du site" as UC72
     usecase "Configuration des paramètres du site" as UC73
 }
-
-    User --> UC0
-    UC1 ..> UC0 : extends
-    UC2 ..> UC0 : extends
-    UC3 ..> UC0 : extends
-
-    User -left-> UC1
-    UC11 ..> UC1 : extends
-    UC12 ..> UC1 : extends
-    UC13 ..> UC1 : extends
-    UC14 ..> UC1 : extends
-    UC15 ..> UC1 : extends
-
-    RH --> UC2A
-    UC2 ..> UC2A : include
-    UC22 ..> UC2 : extends
-    UC23 ..> UC2 : extends
-    UC24 ..> UC2 : extends
-    UC25 ..> UC2 : extends
-    UC26 ..> UC2 : extends
-
-    Fire --> UC3A
-    UC3 ..> UC3A : include
-    UC31 ..> UC3 : extends
-    UC32 ..> UC3 : extends
-    UC34 ..> UC3 : extends
-    UC32 ..> UC33 : extends
-    UC34 ..> UC33 : include
-
-    Tech --> UC4A
-    UC4 ..> UC4A : include
-    UC41 ..> UC4 : extends
-    UC42 ..> UC4 : extends
-
-    Alert --> UC5A
-    UC5 ..> UC5A : include
-    UC51 ..> UC5 : extends
-    UC52 ..> UC5 : extends
-
-    Super --> UC6A
-    UC6 ..> UC6A : include
-    UC61 ..> UC6 : extends
-
-    Admin --> UC7A
-    UC7 ..> UC7A : include
-    UC71 ..> UC7 : extends
-    UC72 ..> UC7 : extends
-    UC73 ..> UC7 : extends
     
+User --> UC0
+UC1 ..> UC0 : extends
+UC2 ..> UC0 : extends
+UC3 ..> UC0 : extends
+
+User -left-> UC1
+UC11 ..> UC1 : extends
+UC12 ..> UC1 : extends
+UC13 ..> UC1 : extends
+UC14 ..> UC1 : extends
+UC15 ..> UC1 : extends
+
+RH --> UC2A
+UC2 ..> UC2A : include
+UC22 ..> UC2 : extends
+UC23 ..> UC2 : extends
+UC24 ..> UC2 : extends
+UC25 ..> UC2 : extends
+UC26 ..> UC2 : extends
+
+Fire --> UC3A
+UC3 ..> UC3A : include
+UC31 ..> UC3 : extends
+UC32 ..> UC3 : extends
+UC34 ..> UC3 : extends
+UC32 ..> UC33 : extends
+UC34 ..> UC33 : include
+
+Tech --> UC4A
+UC4 ..> UC4A : include
+UC41 ..> UC4 : extends
+UC42 ..> UC4 : extends
+
+Alert --> UC5A
+UC5 ..> UC5A : include
+UC51 ..> UC5 : extends
+UC52 ..> UC5 : extends
+
+Super --> UC6A
+UC6 ..> UC6A : include
+UC61 ..> UC6 : extends
+
+Admin --> UC7A
+UC7 ..> UC7A : include
+UC71 ..> UC7 : extends
+UC72 ..> UC7 : extends
+UC73 ..> UC7 : extends
+
 @enduml
