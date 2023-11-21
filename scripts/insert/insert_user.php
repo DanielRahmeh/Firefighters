@@ -6,7 +6,7 @@ $bdd = $db->getConnection();
 if (!$bdd) {
    die("Error connecting to the database");
 }
-//try {
+try {
     $reponse = $bdd->prepare("INSERT INTO user(id_user_role,
                                                 firstname_user,
                                                 lastname_user,
@@ -26,12 +26,12 @@ if (!$bdd) {
                     $_POST["password"],
                     $_POST["start_date"],
                     $_POST["end_date"]]);
-    //header("Location: ".$_SESSION["url"]."/pages/many/many_user.php?error=0");
+    header("Location: ".$_SESSION["url"]."/pages/many/many_user.php?error=0");
     exit;
     
-//} catch (PDOException $e) {
-    //header("Location: ".$_SESSION["url"]."/pages/many/many_user.php?error=-1");
-    //exit;
-//}
-//header("Location: ".$_SESSION["url"]."/pages/many/many_user.php");
+} catch (PDOException $e) {
+    header("Location: ".$_SESSION["url"]."/pages/many/many_user.php?error=-1");
+    exit;
+}
+header("Location: ".$_SESSION["url"]."/pages/many/many_user.php");
 ?>

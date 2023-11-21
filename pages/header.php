@@ -26,6 +26,14 @@ if (!$bdd) {
         <?php
         switch ($_SESSION["id_user_role"]) {
             case 1:
+                if ($_SESSION["id_user_role"] == 1) {
+                    ?>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/archive/many/many_archive_user.php"); ?>>Archive des utilisateurs</a></p>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/archive/many/many_archive_equipment.php"); ?>>Archive des équipements</a></p>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/archive/many/many_archive_incident.php"); ?>>Archive des incidents</a></p>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/archive/many/many_archive_intervention.php"); ?>>Archive des interventions</a></p>
+                    <?php
+                }
             case 2:
                 ?>
                 <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_user.php"); ?>>Gestion des utilisateurs</a></p>

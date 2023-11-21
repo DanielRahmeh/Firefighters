@@ -10,7 +10,7 @@ $_SESSION["url"] = $_SESSION["protocol"].$_SERVER['SERVER_NAME']."/Firefighters"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=<?php echo($_SESSION["url"]."/styles/styles.css"); ?>>
-    <title>Pomper</title>
+    <title>Pompiers</title>
 </head>
 <body>
 <?php

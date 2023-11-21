@@ -51,8 +51,8 @@ if(isset($_GET["error"])) {
     <p>Téléphone <input type="text" name="phone" value="<?php echo($user->phone); ?>" required></p>
     <p>Adresse <input type="text" name="address" value="<?php echo($user->address); ?>" required></p>
     <p>Mail <input type="text" name="mail" value="<?php echo($user->mail); ?>" required></p>
-    <p>Date <input type="date" name="start_date" value="<?php echo($user->start_date); ?>" required></p>
-    <p>Date <input type="date" name="end_date" value="<?php echo($user->end_date); ?>"></p>
+    <p>Date de début <input type="date" name="start_date" value="<?php echo($user->start_date); ?>" required></p>
+    <p>Date de fin  <input type="date" name="end_date" value="<?php echo($user->end_date); ?>"></p>
     <p><input type="submit" value="Modifier"></p>
 </form>
 

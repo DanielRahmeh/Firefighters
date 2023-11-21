@@ -4,8 +4,8 @@ require ($_SERVER['DOCUMENT_ROOT']."/Firefighters/class/user.php");
 
 
 $reponse = $bdd->prepare("SELECT * 
-                        FROM user 
-                        INNER JOIN user_role ON user.id_user_role = user_role.id_user_role");
+                        FROM user_archive
+                        INNER JOIN user_role ON user_archive.id_user_role = user_role.id_user_role");
 $reponse->execute();
 $users = array();
 $i = 0;
@@ -25,24 +25,6 @@ while ($donnees = $reponse->fetch()) {
     $i++;
 }
 ?>
-<p><a href="<?php echo($_SESSION["url"]."/pages/add/add_user.php"); ?>">Ajouter</a></p>
-<p><a href="<?php echo($_SESSION["url"]."/scripts/archive/archive_user.php"); ?>">Archiver</a></p>
-<?php
-if(isset($_GET["error"])) {
-    switch ($_GET["error"]) {
-        case -1:
-            ?>
-            <p>Erreur lors de la création du profil</p>
-            <?php
-            break;
-        case 0:
-            ?>
-            <p>La profil a bien été crée</p>
-            <?php
-            break;
-    }
-}
-?>
 <table>
     <tr>
         <th>Nom</th>
@@ -57,7 +39,7 @@ if(isset($_GET["error"])) {
             <td><?php echo($user->last_name); ?></td>
             <td><?php echo($user->first_name); ?></td>
             <td><?php echo($user->name_user_role); ?></td>
-            <td><a href=<?php echo($_SESSION["url"]."/pages/single/single_user.php?id=".$user->id); ?>>Modifier</a></td>
+            <td><a href=<?php echo($_SESSION["url"]."/pages/archive/single/single_archive_user.php?id=".$user->id); ?>>Details</a></td>
         </tr>
         <?php
     }
