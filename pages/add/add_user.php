@@ -36,5 +36,5 @@ require ($_SERVER['DOCUMENT_ROOT']."/Firefighters/class/user_role.php");
     <p>Mot de passe <input type="password" name="password" required></p>
     <p>Date <input type="date" name="start_date" required></p>
     <p>Date <input type="date" name="end_date"></p>
-    <p><input type="submit" value="Modifier"></p>
+    <p><input type="submit" value="Ajouter"></p>
 </form>

@@ -7,7 +7,6 @@ if (!$bdd) {
    die("Error connecting to the database");
 }
 if (isset($_GET["id"])) {
-    //$end_date = isset($_POST["end_date"]) && !empty($_POST["end_date"]) ? $_POST["end_date"] : NULL;
     try {
         $reponse = $bdd->prepare("UPDATE user
                                 SET firstname_user = ?,
@@ -26,5 +25,5 @@ if (isset($_GET["id"])) {
         exit;
     }
 }
-//header("Location: ".$_SESSION["url"]."/pages/single/single_user.php?id=".$_GET["id"]);
+header("Location: ".$_SESSION["url"]."/pages/single/single_user.php?id=".$_GET["id"]);
 ?>

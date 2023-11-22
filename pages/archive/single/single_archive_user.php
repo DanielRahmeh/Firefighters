@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/Firefighters/pages/header.php");
 require ($_SERVER['DOCUMENT_ROOT']."/Firefighters/class/user.php");
 ?>
-<p><a href="<?php echo($_SESSION["url"]."/pages/many/many_user.php"); ?>">Retour</a></p>
+<p><a href="<?php echo($_SESSION["url"]."/pages/archive/many/many_archive_user.php"); ?>">Retour</a></p>
 <?php
 $reponse = $bdd->prepare("SELECT * 
                         FROM user_archive

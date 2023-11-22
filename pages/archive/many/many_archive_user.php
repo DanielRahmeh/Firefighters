@@ -30,7 +30,7 @@ while ($donnees = $reponse->fetch()) {
         <th>Nom</th>
         <th>Prénom</th>
         <th>Role</th>
-        <th>Modifier</th>
+        <th>Plus</th>
     </tr>
     <?php
     foreach($users as $user) {
