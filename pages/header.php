@@ -40,7 +40,6 @@ if (!$bdd) {
                 <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_competence.php"); ?>>Gestion des compétences</a></p>
                 <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_training.php"); ?>>Gestion des formations</a></p>
                 <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_certification.php"); ?>>Gestion des certification</a></p>
-                <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_planning.php"); ?>>Gestion des plannings</a></p>
                 <?php
                 if ($_SESSION["id_user_role"] == 2) {
                     break;
@@ -48,7 +47,6 @@ if (!$bdd) {
             case 3:
                 ?>
                 <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_equipment.php"); ?>>Gestion des équipements</a></p>
-                <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_servicing.php"); ?>>Gestion des maintenances</a></p>
                 <?php
                 if ($_SESSION["id_user_role"] == 3) {
                     break;
