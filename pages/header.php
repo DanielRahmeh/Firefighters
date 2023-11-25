@@ -60,12 +60,12 @@ if (!$bdd) {
                     break;
                 }
             case 5:
-                ?>
-                <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_disponibility.php"); ?>>Définir ses disponibilités</a></p>
-                <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_state.php"); ?>>Gestion des états d'interventions</a></p>
-                <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_analyse.php"); ?>>Gestion des analyse d'intervention</a></p>
-                <?php
                 if ($_SESSION["id_user_role"] == 5) {
+                    ?>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_disponibility.php"); ?>>Définir ses disponibilités</a></p>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_state.php"); ?>>Gestion des états d'interventions</a></p>
+                    <p><a href=<?php echo($_SESSION["url"]."/pages/many/many_analyse.php"); ?>>Gestion des analyse d'intervention</a></p>
+                    <?php
                     break;
                 }
             case 6:

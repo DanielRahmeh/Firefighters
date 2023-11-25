@@ -5,6 +5,8 @@ class Incident {
     var $description;
     var $start_datetime;
     var $end_datetime;
+    var $id_incident_type;
+    var $name_incident_type;
     public function __construct($id,
                                 $name,
                                 $description,
