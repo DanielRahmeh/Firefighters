@@ -9,19 +9,11 @@ if (!$bdd) {
 
 if (isset($_GET["id"])) {
     for($i = $_POST["start_hour"]; $i < $_POST["end_hour"]; $i++) {
-        try {
-            $reponse = $bdd->prepare("INSERT INTO planned(id_schedule, id_user, date_planned, hour_planned)
-            VALUES(?, ?, ?, ?)");
-            $reponse->execute([1, $_GET["id"], $_POST["date"], $i]);
-            header("Location: ".$_SESSION["url"]."/pages/many/many_planned.php?error=0&id=".$_GET["id"]);
-            exit;
-        }
-        catch (PDOException $e) {
-            header("Location: ".$_SESSION["url"]."/pages/many/many_planned.php?error=-1&id=".$_GET["id"]);
-            exit;
-        }
+        $reponse = $bdd->prepare("INSERT INTO planned(id_schedule, id_user, date_planned, hour_planned)
+        VALUES(?, ?, ?, ?)");
+        $reponse->execute([1, $_GET["id"], $_POST["date"], $i]);
+        header("Location: ".$_SESSION["url"]."/pages/many/many_planned.php?error=0&id=".$_GET["id"]);
     }
 }
-header("Location: ".$_SESSION["url"]."/pages/many/many_planned.php?id=".$_GET["id"]);
-exit;
+header("Location: ".$_SESSION["url"]."/pages/many/many_planned.php?error=-1&id=".$_GET["id"]);
 ?>

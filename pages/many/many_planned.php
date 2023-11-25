@@ -56,7 +56,7 @@ if(isset($_GET["error"])) {
 $reponse = $bdd->prepare("SELECT * 
                         FROM planned
                         WHERE id_user = ?
-                        ORDER BY date_planned, hour_planned");
+                        ORDER BY date_planned DESC, hour_planned");
 $reponse->execute([$_SESSION["id_user"]]);
 
 $plannedsByDate = array();
@@ -84,7 +84,6 @@ while ($donnees = $reponse->fetch()) {
 
             foreach ($planneds as $planned) {
                 if ($last_hour !== null && ($planned->hour != $last_hour + 1 || $planned->id != $last_id_schedule)) {
-                    // Affiche la plage horaire précédente
                     echo '<li>' . htmlspecialchars($range_start) . 'h à ' . htmlspecialchars($last_hour + 1) . 'h - ' . ($last_id_schedule == 1 ? 'Disponible' : 'Intervention') . '</li>';
                     $range_start = $planned->hour;
                 }
@@ -96,8 +95,7 @@ while ($donnees = $reponse->fetch()) {
                 $last_hour = $planned->hour;
                 $last_id_schedule = $planned->id;
             }
-
-            // Affiche la dernière plage horaire
+            
             if ($range_start !== null) {
                 echo '<li>' . htmlspecialchars($range_start) . 'h à ' . htmlspecialchars($last_hour + 1) . 'h - ' . ($last_id_schedule == 1 ? 'Disponible' : 'Intervention') . '</li>';
             }
@@ -116,10 +114,8 @@ function updateEndTime() {
     var endHourSelect = document.getElementById('end_hour');
     var selectedStartHour = parseInt(startHourSelect.value);
 
-    // Nettoyer les options existantes de l'heure de fin
     endHourSelect.innerHTML = '';
 
-    // Ajouter de nouvelles options à l'heure de fin
     for (var i = selectedStartHour + 1; i <= 24; i++) {
         var option = document.createElement('option');
         option.value = i;
